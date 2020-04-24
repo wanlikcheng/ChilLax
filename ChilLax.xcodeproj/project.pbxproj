@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B306BAF624539FAF003A6B07 /* SplashScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B306BAF524539FAF003A6B07 /* SplashScreenViewController.swift */; };
 		B3350C05245161D300CC2A03 /* SoundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3350C04245161D300CC2A03 /* SoundViewController.swift */; };
 		B3943CAF2452ADA900811C8A /* SoundInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3943CAE2452ADA900811C8A /* SoundInfo.swift */; };
 		B3943CB12452B09200811C8A /* Sounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3943CB02452B09200811C8A /* Sounds.swift */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B306BAF524539FAF003A6B07 /* SplashScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenViewController.swift; sourceTree = "<group>"; };
 		B3350C04245161D300CC2A03 /* SoundViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundViewController.swift; sourceTree = "<group>"; };
 		B3943CAE2452ADA900811C8A /* SoundInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundInfo.swift; sourceTree = "<group>"; };
 		B3943CB02452B09200811C8A /* Sounds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sounds.swift; sourceTree = "<group>"; };
@@ -66,6 +68,7 @@
 				B3D360152450F9A6002A93B5 /* SceneDelegate.swift */,
 				B3943CAE2452ADA900811C8A /* SoundInfo.swift */,
 				B3943CB02452B09200811C8A /* Sounds.swift */,
+				B306BAF524539FAF003A6B07 /* SplashScreenViewController.swift */,
 				B3D360172450F9A6002A93B5 /* ViewController.swift */,
 				B3350C04245161D300CC2A03 /* SoundViewController.swift */,
 				B3D360192450F9A6002A93B5 /* Main.storyboard */,
@@ -149,6 +152,7 @@
 			files = (
 				B3943CAF2452ADA900811C8A /* SoundInfo.swift in Sources */,
 				B3350C05245161D300CC2A03 /* SoundViewController.swift in Sources */,
+				B306BAF624539FAF003A6B07 /* SplashScreenViewController.swift in Sources */,
 				B3D360182450F9A6002A93B5 /* ViewController.swift in Sources */,
 				B3943CB12452B09200811C8A /* Sounds.swift in Sources */,
 				B3D360142450F9A6002A93B5 /* AppDelegate.swift in Sources */,

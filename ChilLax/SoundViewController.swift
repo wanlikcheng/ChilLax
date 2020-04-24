@@ -30,7 +30,7 @@ class SoundViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "\(soundInfo.backgroundImage)")!).withAlphaComponent(0.5)
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "\(soundInfo.backgroundImage)")!) //.withAlphaComponent(0.5)
         backgroundView.backgroundColor = UIColor.clear
         updateUserInterface()
         playSound(soundName: "\(soundInfo.fileName)", audioPlayer: &audioPlayer)
