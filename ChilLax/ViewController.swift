@@ -11,7 +11,8 @@ import AVFoundation
 
 class ViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
-    var sounds = ["Forest Breeze", "Oceanside Waves", "Rainstorm", "Music"]
+//    var sounds = ["Nezuko's Theme", "Oceanside Waves", "Rainstorm", "Music"]
+    var sounds = Sounds()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,6 +20,20 @@ class ViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         
+        sounds.getData {
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ShowSound" {
+            let destination = segue.destination as! SoundViewController
+            let selectedIndexPath = tableView.indexPathForSelectedRow!
+            destination.soundInfo = sounds.soundArray[selectedIndexPath.row]
+        }
     }
     
     
@@ -26,12 +41,12 @@ class ViewController: UIViewController {
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return sounds.count
+        return sounds.soundArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        cell.textLabel?.text = sounds[indexPath.row]
+        cell.textLabel?.text = sounds.soundArray[indexPath.row].name
         return cell
     }
     

@@ -10,9 +10,9 @@ import UIKit
 import AVFoundation
 
 class SoundViewController: UIViewController {
+    
     @IBOutlet weak var soundNameLabel: UILabel!
     @IBOutlet weak var placeDescriptionLabel: UILabel!
-    @IBOutlet weak var sceneryView: UIImageView!
     @IBOutlet weak var playButton: UIButton!
     @IBOutlet weak var pauseButton: UIButton!
     @IBOutlet weak var backgroundView: UIView!
@@ -20,6 +20,9 @@ class SoundViewController: UIViewController {
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var forwardButton: UIButton!
     
+    var soundInfo: SoundInfo!
+    var soundfileName: String = ""
+    var soundBackgroundImage: String = ""
     
     var audioPlayer = AVAudioPlayer()
     
@@ -27,8 +30,9 @@ class SoundViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "resMorning")!)
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "\(soundInfo.backgroundImage)")!)
         backgroundView.backgroundColor = UIColor.clear
+        updateUserInterface()
     }
     
     func playSound(soundName: String, audioPlayer: inout AVAudioPlayer) {
@@ -54,7 +58,7 @@ class SoundViewController: UIViewController {
     
     @IBAction func playButtonPressed(_ sender: Any) {
         if !audioPlayer.isPlaying {
-            playSound(soundName: "Nezuko's_Theme", audioPlayer: &audioPlayer)
+            playSound(soundName: "\(soundInfo.fileName)", audioPlayer: &audioPlayer)
         }
     }
     
@@ -87,5 +91,12 @@ class SoundViewController: UIViewController {
           } else {
              audioPlayer.currentTime = time
           }
+    }
+    
+    func updateUserInterface() {
+        soundNameLabel.text = soundInfo.name
+        soundfileName = soundInfo.fileName
+        placeDescriptionLabel.text = soundInfo.placeDescription
+        soundBackgroundImage = soundInfo.backgroundImage
     }
 }
