@@ -30,9 +30,14 @@ class SoundViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "\(soundInfo.backgroundImage)")!)
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "\(soundInfo.backgroundImage)")!).withAlphaComponent(0.5)
         backgroundView.backgroundColor = UIColor.clear
         updateUserInterface()
+        playSound(soundName: "\(soundInfo.fileName)", audioPlayer: &audioPlayer)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        audioPlayer.stop()
     }
     
     func playSound(soundName: String, audioPlayer: inout AVAudioPlayer) {
@@ -58,7 +63,7 @@ class SoundViewController: UIViewController {
     
     @IBAction func playButtonPressed(_ sender: Any) {
         if !audioPlayer.isPlaying {
-            playSound(soundName: "\(soundInfo.fileName)", audioPlayer: &audioPlayer)
+            audioPlayer.play()
         }
     }
     
@@ -74,7 +79,7 @@ class SoundViewController: UIViewController {
     
     @IBAction func backButtonPressed(_ sender: Any) {
         var time: TimeInterval = audioPlayer.currentTime
-        time += 15.0
+        time -= 15.0
           if time > audioPlayer.duration {
             audioPlayer.stop()
           } else {
