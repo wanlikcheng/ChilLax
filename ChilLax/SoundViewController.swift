@@ -19,10 +19,10 @@ class SoundViewController: UIViewController {
     @IBOutlet weak var progressView: UIProgressView!
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var forwardButton: UIButton!
+    @IBOutlet weak var imageView: UIImageView!
     
     var soundInfo: SoundInfo!
     var soundfileName: String = ""
-    var soundBackgroundImage: String = ""
     
     var audioPlayer = AVAudioPlayer()
     
@@ -30,7 +30,7 @@ class SoundViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "\(soundInfo.backgroundImage)")!) //.withAlphaComponent(0.5)
+//        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "\(soundInfo.backgroundImage)")!) //.withAlphaComponent(0.5)
         backgroundView.backgroundColor = UIColor.clear
         updateUserInterface()
         playSound(soundName: "\(soundInfo.fileName)", audioPlayer: &audioPlayer)
@@ -102,6 +102,6 @@ class SoundViewController: UIViewController {
         soundNameLabel.text = soundInfo.name
         soundfileName = soundInfo.fileName
         placeDescriptionLabel.text = soundInfo.placeDescription
-        soundBackgroundImage = soundInfo.backgroundImage
+        imageView.image = UIImage(named: "\(soundInfo.backgroundImage)")
     }
 }

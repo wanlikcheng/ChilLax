@@ -12,11 +12,11 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ChilLax" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0G7-MA-xYQ">
-                                <rect key="frame" x="0.0" y="56" width="414" height="752"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="Cell" textLabel="b5Z-BN-yKq" style="IBUITableViewCellStyleDefault" id="I8V-0d-vd1">
@@ -51,7 +51,17 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="24L-j6-VjG"/>
+                    <toolbarItems>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="7AI-fm-cDy"/>
+                        <barButtonItem title="Item" image="house" catalog="system" id="s20-kB-RyF"/>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="Ng6-6Z-cjR"/>
+                        <barButtonItem title="Item" id="V7E-gF-Rba"/>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="Aye-aD-EpQ"/>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" id="24L-j6-VjG">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="plus" catalog="system" id="kt7-uU-v33"/>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="tableView" destination="0G7-MA-xYQ" id="uiR-Wy-yA9"/>
                     </connections>
@@ -64,12 +74,15 @@
         <scene sceneID="Zu7-0a-aXP">
             <objects>
                 <viewController id="yYV-Ad-ksc" customClass="SoundViewController" customModule="ChilLax" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" alpha="0.84999999999999998" contentMode="scaleToFill" id="eeX-u4-Dzx">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                    <view key="view" contentMode="scaleToFill" id="eeX-u4-Dzx">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.75" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="breathOfWater" translatesAutoresizingMaskIntoConstraints="NO" id="bLH-tT-2rC">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                            </imageView>
                             <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8aA-Ln-nZz">
-                                <rect key="frame" x="0.0" y="56" width="414" height="752"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Relaxing Sound Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ejC-re-L5Q">
                                         <rect key="frame" x="8" y="8" width="398" height="75"/>
@@ -142,8 +155,12 @@
                         <constraints>
                             <constraint firstItem="WpQ-pL-xpg" firstAttribute="trailing" secondItem="8aA-Ln-nZz" secondAttribute="trailing" id="Kl8-Zo-jgh"/>
                             <constraint firstItem="WpQ-pL-xpg" firstAttribute="bottom" secondItem="8aA-Ln-nZz" secondAttribute="bottom" id="N7Y-sd-nVg"/>
+                            <constraint firstItem="bLH-tT-2rC" firstAttribute="trailing" secondItem="WpQ-pL-xpg" secondAttribute="trailing" id="bzb-6C-5hW"/>
+                            <constraint firstItem="bLH-tT-2rC" firstAttribute="leading" secondItem="WpQ-pL-xpg" secondAttribute="leading" id="eDZ-ac-Kbn"/>
                             <constraint firstItem="8aA-Ln-nZz" firstAttribute="top" secondItem="WpQ-pL-xpg" secondAttribute="top" id="eR2-Aa-Ess"/>
+                            <constraint firstItem="bLH-tT-2rC" firstAttribute="top" secondItem="eeX-u4-Dzx" secondAttribute="top" id="f7o-vx-IKl"/>
                             <constraint firstItem="8aA-Ln-nZz" firstAttribute="leading" secondItem="WpQ-pL-xpg" secondAttribute="leading" id="xej-UY-nNp"/>
+                            <constraint firstItem="WpQ-pL-xpg" firstAttribute="bottom" secondItem="bLH-tT-2rC" secondAttribute="bottom" id="yvI-cS-lDd"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="WpQ-pL-xpg"/>
                     </view>
@@ -152,6 +169,7 @@
                         <outlet property="backButton" destination="8N6-q6-VRj" id="lht-sV-DxP"/>
                         <outlet property="backgroundView" destination="8aA-Ln-nZz" id="uB3-GT-igC"/>
                         <outlet property="forwardButton" destination="qvD-Xj-ZIG" id="jCE-kI-M5C"/>
+                        <outlet property="imageView" destination="bLH-tT-2rC" id="JAs-eL-vKf"/>
                         <outlet property="pauseButton" destination="SRg-sf-5cG" id="XOd-pF-089"/>
                         <outlet property="placeDescriptionLabel" destination="fG0-yR-a2E" id="RvR-mb-6tJ"/>
                         <outlet property="playButton" destination="luM-TR-sXm" id="AH0-s1-dMd"/>
@@ -203,7 +221,7 @@
                                 </connections>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.45616948045652306" green="0.74665683319698073" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.72511090109999998" green="0.72931309609999995" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="CIn-w9-Ocv" firstAttribute="leading" secondItem="fH2-Dc-Wjs" secondAttribute="leading" id="Tuh-hs-Vhd"/>
                             <constraint firstItem="CIn-w9-Ocv" firstAttribute="top" secondItem="fH2-Dc-Wjs" secondAttribute="top" id="fpv-A2-LvM"/>
@@ -232,14 +250,21 @@
         <!--Navigation Controller-->
         <scene sceneID="XSr-dt-58O">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="5dE-C1-okw" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" toolbarHidden="NO" id="5dE-C1-okw" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="adk-0E-b4k"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="6hi-aq-ya2">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.72511090108247878" green="0.72931309614043238" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="K0i-f0-sUK">
+                        <rect key="frame" x="0.0" y="813" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.72511090109999998" green="0.72931309609999995" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </toolbar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="hMe-aY-dfO"/>
                     </connections>
@@ -250,9 +275,12 @@
         </scene>
     </scenes>
     <resources>
+        <image name="breathOfWater" width="692" height="692"/>
         <image name="gobackward.15" catalog="system" width="121" height="128"/>
         <image name="goforward.15" catalog="system" width="121" height="128"/>
+        <image name="house" catalog="system" width="128" height="110"/>
         <image name="pause.circle" catalog="system" width="128" height="121"/>
         <image name="play" catalog="system" width="120" height="128"/>
+        <image name="plus" catalog="system" width="128" height="113"/>
     </resources>
 </document>
