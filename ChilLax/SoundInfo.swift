@@ -8,9 +8,10 @@
 
 import Foundation
 
-struct SoundInfo {
+struct SoundInfo: Codable {
     var name: String
     var fileName: String
     var placeDescription: String
     var backgroundImage: String
+    var liked: Bool
 }

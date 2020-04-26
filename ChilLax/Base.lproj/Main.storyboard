@@ -19,23 +19,34 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="Cell" textLabel="b5Z-BN-yKq" style="IBUITableViewCellStyleDefault" id="I8V-0d-vd1">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="Cell" id="I8V-0d-vd1" customClass="FavoriteTableViewCell" customModule="ChilLax" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="I8V-0d-vd1" id="ycw-f5-5ww">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Sound To Play" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="b5Z-BN-yKq">
-                                                    <rect key="frame" x="20" y="0.0" width="374" height="43.5"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sound to Play" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R7p-za-s1Q">
+                                                    <rect key="frame" x="49" y="11" width="345" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9gE-if-18d">
+                                                    <rect key="frame" x="20" y="11" width="21" height="22"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" image="heart" catalog="system"/>
+                                                    <state key="selected" image="heart.fill" catalog="system"/>
+                                                    <connections>
+                                                        <action selector="likedToggle:" destination="I8V-0d-vd1" eventType="touchUpInside" id="EVc-F9-L1p"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="likedButton" destination="9gE-if-18d" id="sQg-WE-fdc"/>
+                                            <outlet property="soundNameLabel" destination="R7p-za-s1Q" id="j4V-hL-K7m"/>
                                             <segue destination="yYV-Ad-ksc" kind="show" identifier="ShowSound" id="mIL-rD-trh"/>
                                         </connections>
                                     </tableViewCell>
@@ -52,17 +63,23 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <toolbarItems>
-                        <barButtonItem style="plain" systemItem="flexibleSpace" id="7AI-fm-cDy"/>
-                        <barButtonItem title="Item" image="house" catalog="system" id="s20-kB-RyF"/>
-                        <barButtonItem style="plain" systemItem="flexibleSpace" id="Ng6-6Z-cjR"/>
-                        <barButtonItem title="Item" id="V7E-gF-Rba"/>
-                        <barButtonItem style="plain" systemItem="flexibleSpace" id="Aye-aD-EpQ"/>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="7t6-6p-TgK"/>
+                        <barButtonItem title="Item" image="heart" catalog="system" id="VIH-sH-D4x">
+                            <color key="tintColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="favoriteSoundsButtonPressed:" destination="BYZ-38-t0r" id="b9p-Ug-6q0"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="5e2-WH-4Vb"/>
                     </toolbarItems>
                     <navigationItem key="navigationItem" id="24L-j6-VjG">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="plus" catalog="system" id="kt7-uU-v33"/>
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="plus" catalog="system" id="kt7-uU-v33">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="displayFavoritesButton" destination="VIH-sH-D4x" id="son-C7-ZHg"/>
                         <outlet property="tableView" destination="0G7-MA-xYQ" id="uiR-Wy-yA9"/>
                     </connections>
                 </viewController>
@@ -179,7 +196,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kVq-Vz-lfk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1902.8985507246377" y="116.51785714285714"/>
+            <point key="canvasLocation" x="2170" y="117"/>
         </scene>
         <!--Splash Screen View Controller-->
         <scene sceneID="Y4Z-Gc-OHR">
@@ -263,6 +280,7 @@
                     <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="K0i-f0-sUK">
                         <rect key="frame" x="0.0" y="813" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.72511090109999998" green="0.72931309609999995" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="barTintColor" red="0.72511090109999998" green="0.72931309609999995" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </toolbar>
                     <connections>
@@ -271,14 +289,15 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Je-ho-rzF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="131.8840579710145" y="116.51785714285714"/>
+            <point key="canvasLocation" x="139" y="-7"/>
         </scene>
     </scenes>
     <resources>
         <image name="breathOfWater" width="692" height="692"/>
         <image name="gobackward.15" catalog="system" width="121" height="128"/>
         <image name="goforward.15" catalog="system" width="121" height="128"/>
-        <image name="house" catalog="system" width="128" height="110"/>
+        <image name="heart" catalog="system" width="128" height="109"/>
+        <image name="heart.fill" catalog="system" width="128" height="109"/>
         <image name="pause.circle" catalog="system" width="128" height="121"/>
         <image name="play" catalog="system" width="120" height="128"/>
         <image name="plus" catalog="system" width="128" height="113"/>
